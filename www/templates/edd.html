@@ -1,0 +1,61 @@
+<ion-view style="" title="Subsequent  pregnancy">
+    <ion-content class="has-header" overflow-scroll="true" padding="true">
+       <div style="" class="list card">
+            <div class="item item-divider">Purpose of EDD</div>
+            <div class="item item-body">
+                <div style="">
+                    <p>To get to know the maturity of the baby and the Expected Date of Delivery.</p>
+                </div>
+            </div>
+        </div>
+        <form ng-if="sha" style="" class="list">
+        
+           
+            <label style="" name="last_delivery" class="item item-input">
+                <span class="input-label">last Period  date</span>
+                <input ng-model="p.dat" placeholder="including current one" type="date">
+            </label>
+            
+              <label style="" class="item item-input">
+                <span class="input-label">Time</span>
+                <select ng-model="p.time.wn">
+                <option value="Am" >Am</option>
+                <option value="Pm" >Pm</option> 
+               </select>
+
+               <select ng-model="p.time.hr">
+                <option value=1 >1</option>
+                <option value=2 >2</option>
+                <option value=3 >3</option>
+                <option value=4 >4</option>
+                    <option value=5 >5</option>
+                     <option value=6 >6</option>
+                      <option value=7 >7</option>
+                       <option value=8 >8</option>
+                        <option value=9 >9</option>
+                         <option value=10 >10</option>
+                          <option value=11 >11</option>
+                           <option value=12 >12</option>
+               </select> : 
+                <select ng-model="p.time.min">
+                <option value=00>00</option>
+                <option value=15>15</option>
+                <option value=30>30</option> 
+                <option value=45 >45</option> 
+               </select>
+            </label>
+            <button ng-if="sha" style="" ng-click="saves()" class="button button-royal button-block " >Submit</button>
+        </form>
+        <div ng-if="!sha">
+    <h3>Last Period Date </h3>
+        
+       <p>
+        {{dda | date:'longDate'}} at around  {{pa.time.hr}}:{{pa.time.min}} {{pa.time.wn}}
+       </p>
+        <h3>Expected Date</h3>
+       <p> {{duration | date:'longDate'}}  Months</p>
+           
+        </div>
+        
+    </ion-content>
+</ion-view>

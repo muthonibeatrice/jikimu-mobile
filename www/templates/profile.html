@@ -1,0 +1,57 @@
+<ion-view style=""  title="Profile">
+   
+  <div class="list card has-header">
+
+  <div class="item item-avatar">
+   <img src="img/bCLlH5GHQE6ghm9EFA9f_Photo0038.jpg">
+
+  
+  </div>
+
+  <div class="item item-body">
+ 
+    <p>
+Name <input style="text-align:centre" type="text" class="" ng-model="prof.name">
+     
+    </p>
+<!--    <p>
+Username <input style="text-align:centre" type="text" class="" ng-model="prof.email">
+     
+    </p> -->
+    <p>
+      Age <input style="text-align:centre" type="text" class="" ng-model="prof.age">     
+    </p>
+     <p>
+Doctor Name <input style="text-align:centre" type="text" class="" ng-model="prof.docname">
+     
+    </p>
+    <div>
+    <p>
+      Expected date  <b>{{duration | date:'longDate'}}</b>
+    </p>
+  </div>
+    <div >
+      Result from Last test
+       <p style="color:{{risk.color}}">{{risk.text}} </p>
+ 
+    </div>
+    <p>
+Name <input style="text-align:centre" type="date" class="" ng-model="prof.birthday">
+     
+    </p>
+   
+ 
+    
+      
+    
+  </div>
+  <div class="item item-body">
+  	<button class="button button-calm" ng-click="update()">Update Profile</button>
+    <div>
+  	<a class="button button-assertive " href="#/logout" style="float:right" ">Logout</a>
+  </div>
+  </div>
+
+</div>
+    </ion-content>
+</ion-view>

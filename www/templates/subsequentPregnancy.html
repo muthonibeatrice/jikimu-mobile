@@ -1,0 +1,39 @@
+<ion-view style="" title="Subsequent  pregnancy">
+    <ion-content class="has-header" overflow-scroll="true" padding="true">
+        <div style="" class="list card">
+            <div class="item item-divider">Subsequent Pregnancy</div>
+            <div class="item item-body">
+                <div style="">
+                    <p>Subsequent pregnancy means this is not your first pregnancy.</p>
+                </div>
+            </div>
+        </div>
+        <form style="" class="list">
+            <label style="" name="viable" class="item item-input">
+                <span class="input-label">No.of viable pregnancies</span>
+                <input ng-model="p.pregs" placeholder="carried to term" type="number">
+            </label>
+            <label style="" name="nonviable" class="item item-input">
+                <span class="input-label">No.of non-viable pregnancies</span>
+                <input ng-model="p.nonpregs" placeholder="Not carried to term" type="number">
+            </label>
+            <label style="" name="sub_age" class="item item-input">
+                <span class="input-label">Age</span>
+                <input ng-model="p.age" placeholder="" type="number" readonly>
+            </label>
+           
+            <label style="" name="last_delivery" class="item item-input">
+                <span class="input-label">last delivery date</span>
+                <input ng-model="p.dat" placeholder="including current one" type="date">
+            </label>
+            <label style="" name="hyp_history" class="item item-select">
+                <span class="input-label">Hypertension history</span>
+                <select ng-model="p.hyper">
+                    <option value=true >Yes</option>
+                    <option value=false>No</option>
+                </select>
+            </label>
+            <button style="" ng-click="save()" class="button button-royal button-block " >Submit</button>
+        </form>
+    </ion-content>
+</ion-view>

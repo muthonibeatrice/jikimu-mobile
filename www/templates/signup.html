@@ -1,0 +1,41 @@
+<ion-view style="" title="Signup">
+    <ion-content class="has-header" scroll="false" overflow-scroll="true" padding="true">
+        <form style="" ng-submit="submitlogin()" class="list" ng-controller="signupCtrl">
+            <ion-list style="">
+                <label style="" class="item item-input">
+                    <span class="input-label">Name</span>
+                    <input placeholder="" type="text" ng-model="usera.name" required>
+                </label>
+                <label style="" class="item item-input">
+                    <span class="input-label">Username</span>
+                    <input placeholder="Enter your email" type="text" ng-model="user.email" required>
+                </label>
+                <label style="" class="item item-input" >
+                    <span class="input-label">Date of Birth</span>
+                    <input placeholder="" type="date" ng-model="usera.birthday" required>
+                </label>
+                 <label style="" class="item item-input" >
+                    <span class="input-label">Doctor's Name</span>
+                    <input placeholder="" type="text" ng-model="usera.docname" required>
+                </label>
+                <label style="" class="item item-input" >
+                    <span class="input-label">Password</span>
+                    <input placeholder="" type="password"  ng-model="user.password" required>
+                </label>
+                <label style="" class="item item-input" >
+                    <span class="input-label"> Confirm Password</span>
+                    <input placeholder="" type="password"  ng-model="cpassword" required>
+                </label>
+                
+            </ion-list>
+            <div style="height: 100px;" class="spacesr"></div>
+          <!--   <button type="submit"></button> -->
+         <!--  <a style="" class="button button-royal button-block " type= "submit" "ui-sref="menu.generalInfo"
+ >Sign up</a> -->
+          <div class="padding">
+            <button type="submit" class="button button-block button-positive icon-right ion-android-arrow-forward">Register</button>
+            
+        </div>
+        </form>
+    </ion-content>
+</ion-view>

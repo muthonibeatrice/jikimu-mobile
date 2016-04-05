@@ -1,0 +1,26 @@
+<ion-view style="" title="first time pregnancy">
+    <ion-content class="has-header" overflow-scroll="true" padding="true">
+        <form style="" class="list">
+            <div style="" class="list card">
+                <div class="item item-divider">Lower Risk</div>
+                <div class="item item-body">
+                    <div style="">
+                        <p>This been your first time pregnancy you fall at the lower risk level compared to other women with subsequent pregnancies, But to be on the safe side, let's test the factors that can put you at risk.</p>
+                    </div>
+                </div>
+            </div>
+            <label style="" name=" first_age" class="item item-input">
+                <span class="input-label">What's your age?</span>
+                <input ng-model="p.age" placeholder="e.g. 35" type="text" readonly>
+            </label>
+            <label style="" name="hyp_history" class="item item-select">
+                <span class="input-label">Hypertension History</span>
+                <select class="" ng-model="p.hyper">
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+            </label>
+            <a style="" class="button button-royal button-block " href="#/side-menu21/page12/{{p.age}}/{{p.hyper}}">Submit</a>
+        </form>
+    </ion-content>
+</ion-view>
