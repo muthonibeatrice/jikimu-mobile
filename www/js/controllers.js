@@ -1,12 +1,5 @@
 angular.module('app.controllers', [])
   
-.controller('generalInfoCtrl', function($scope) {
-
-})
-   
-.controller('riskLevelCtrl', function($scope) {
-
-})
    
 .controller('weightCtrl',['$scope','db','ref', function(scope,db,refa) {
 	scope.weight = {}
@@ -65,14 +58,48 @@ angular.module('app.controllers', [])
 
 }])
    
-.controller('bloodPressureCtrl', function($scope) {
+.controller('bloodPressureCtrl',['$scope','db','ref', function(scope,db,refa) {
 
-})
+	scope.bp = {}
+	 
+	scope.submitbp = function() {
+
+	var user=db.user();
+	if(!user)
+		{
+			state.go("login");
+		}
+	if(user)
+	{
+		console.log("Hello");
+		var ref = new Firebase("https://jikimu.firebaseio.com/");
+		console.log(scope.bp);
+		 	scope.bp.birthda= scope.bp.birthday.toString();
+		    var BpRef = ref.child("bp").child(user.uid).push(scope.bp,function(er,data1)
+		    // var data=ref.child("pregnancy").child(user.uid).toString();
+		{
+			if(!er)
+			{
+				console.log("successful BP Entry");
+			}
+			else
+			{
+				console.log("Failed to update");
+			}
+		});
+		   
+		    scope.retrieve();
+}
+	    		// ref.child("weight").child(data.uid).set(
+	    		// 	scope.usera
+  };
+
+}])
    
 .controller('profileCtrl',['$scope','ref','$state','$ionicPopup','db','$state', function(scope,ref,state,popup,db,state) {
 	scope.prof={};
 	//ref.unauth();
-	
+
 	 scope.show=function(data){
 			 popup.alert({
   	              title: 'Success',
@@ -790,7 +817,7 @@ scope.risk.color="green";
                     showMaxMin: false
                 },
                 yAxis: {
-                    axisLabel: 'mmHg',
+                    axisLabel: 'Kgs',
                     axisLabelDistance: -10,
                     tickFormat: function(d){
                         return d3.format(',.1f')(d);
@@ -827,9 +854,101 @@ scope.risk.color="green";
 
 })
    
-.controller('bPChartCtrl', function($scope) {
+.controller('bPChartCtrl',['$scope','$scope','ref','db', function(scope,$scope, refb,db) {
+	 scope.mapData2 = [];
+	 scope.retrieve = function(){
+  	console.log("retrieve");
+		var ref = new Firebase("https://jikimu.firebaseio.com/bp");
+		var user=db.user();
+		//console.log("user "+JSON.stringify(user));
+		if(!user)
+		{
+			state.go("login");
+		}
+		else
+		{// Attach an asynchronous callback to read the data at our posts reference
+			var data1=refb.child("bp").child(user.uid).toString();
+			console.log(data1);
+			//var ref = new Firebase(dat);
+		db.get(data1).once("value", function(snapshot) {
+		var bp_object = snapshot.val();
+		
+		var pairData2 = [];
+		console.log(bp_object);
+		var keys = Object.keys(bp_object);
+		console.log(keys);
+		for (var i =0; i < keys.length; i++) {
+			var da=new Date(bp_object[keys[i]].birthda).getTime();
+			scope.mapData2.push( [da , parseInt(bp_object[keys[i]].bpvalue.toFixed(1)) ]);
+			console.log("pairdata2", JSON.stringify(scope.mapData2));
+		}
+		//mapData.push(pairData);
+	//	console.log("Map data",scope.mapData)
 
-});
+		//  console.log(wt_object);
+		});
+	}
+		// scope.firebaseObj();
+  }
+  scope.retrieve();
+	    $scope.options = {
+            chart: {
+                type: 'historicalBarChart',
+                height: 450,
+                margin : {
+                    top: 20,
+                    right: 20,
+                    bottom: 65,
+                    left: 50
+                },
+                x: function(d){return d[0];},
+                y: function(d){return d[1]/100000;},
+                showValues: true,
+                valueFormat: function(d){
+                    return d3.format(',.1f')(d);
+                },
+                duration: 100,
+                xAxis: {
+                    axisLabel: 'week',
+                    tickFormat: function(d) {
+                        return d3.time.format('%x')(new Date(d))
+                    },
+                    rotateLabels: 30,
+                    showMaxMin: false
+                },
+                yAxis: {
+                    axisLabel: 'mmHg',
+                    axisLabelDistance: -10,
+                    tickFormat: function(d){
+                        return d3.format(',.1f')(d);
+                    }
+                },
+                tooltip: {
+                    keyFormatter: function(d) {
+                        return d3.time.format('%x')(new Date(d));
+                    }
+                },
+                zoom: {
+                    enabled: true,
+                    scaleExtent: [1, 10],
+                    useFixedDomain: false,
+                    useNiceScale: false,
+                    horizontalOff: false,
+                    verticalOff: true,
+                    unzoomEventType: 'dblclick.zoom'
+                }
+            }
+        };
+
+        $scope.data = [
+            {
+                "key" : "Quantity" ,
+                "bar": true,
+                "values" : scope.mapData2
+            }];
+   
+
+}])
 function age(birthday) { // birthday is a date
     var ageDifMs = Date.now() - birthday.getTime();
     var ageDate = new Date(ageDifMs); // miliseconds from epoch

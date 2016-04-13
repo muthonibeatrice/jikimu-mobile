@@ -17,11 +17,16 @@
             </div>
         </div>
         <form style="" class="list">
+            <label style="" class="item item-input" ng-submit="submitBp()" >
+                    <span class="input-label">Today's date</span>
+                    <input placeholder="" type="date" ng-model="bp.birthday" required>
+            </label>
             <label style="" name="bp_reading" class="item item-input">
                 <span class="input-label">Blood Pressure Reading</span>
-                <input placeholder="" type="number">
+                <input placeholder="" type="number"ng-model="bp.reading" required>
             </label>
-            <a style="" class="button button-royal button-block " ui-sref="menu.bPChart">Go</a>
+           <!--  <a style="" class="button button-royal button-block " ui-sref="menu.bPChart">Go</a> -->
+           <button type="submit" class="button button-block button-positive icon-right ion-android-arrow-forward">GO</button>
         </form>
     </ion-content>
 </ion-view>
