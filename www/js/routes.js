@@ -14,8 +14,8 @@ angular.module('app.routes', [])
     url: '/page2',
     views: {
       'side-menu21': {
-        templateUrl: 'templates/generalInfo.html',
-        controller: 'generalInfoCtrl'
+        templateUrl: 'templates/generalInfo.html'
+       
       }
     }
   })
@@ -24,8 +24,8 @@ angular.module('app.routes', [])
     url: '/page3',
     views: {
       'side-menu21': {
-        templateUrl: 'templates/riskLevel.html',
-        controller: 'riskLevelCtrl'
+        templateUrl: 'templates/riskLevel.html'
+     
       }
     }
   })
@@ -141,11 +141,22 @@ angular.module('app.routes', [])
       }
     }
   })
-   .state('menu.results', {
-    url: '/page12/:age/:hyper',
+  .state('menu.docnote', {
+    url: '/docnote',
+    cache:false,
     views: {
       'side-menu21': {
-        templateUrl: 'templates/results.html',
+        templateUrl: 'templates/docnote.html',
+        controller: 'docCtrl'
+      }
+    }
+  })
+   .state('menu.resultsftp', {
+    url: '/page12/:age/:hyper',
+    cache:false,
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/resultsftp.html',
         controller: 'resultsCtrl'
       }
     }
@@ -153,6 +164,7 @@ angular.module('app.routes', [])
 
   .state('menu.weightChart', {
     url: '/page13',
+    cache:false,
     views: {
       'side-menu21': {
         templateUrl: 'templates/weightChart.html',
@@ -169,6 +181,7 @@ angular.module('app.routes', [])
 
   .state('menu.bPChart', {
     url: '/page15',
+    cache:false,
     views: {
       'side-menu21': {
         templateUrl: 'templates/bPChart.html',

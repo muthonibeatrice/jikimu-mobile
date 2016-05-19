@@ -10,25 +10,25 @@
         </div>
         <form style="" class="list">
             <label style="" name="viable" class="item item-input">
-                <span class="input-label">No.of viable pregnancies</span>
-                <input ng-model="p.pregs" placeholder="carried to term" type="number">
+                <span class="input-label">No.of viable pregnancies?</span>
+                <input ng-model="p.pregs" placeholder="carried to term" type="number" required>
             </label>
             <label style="" name="nonviable" class="item item-input">
-                <span class="input-label">No.of non-viable pregnancies</span>
-                <input ng-model="p.nonpregs" placeholder="Not carried to term" type="number">
+                <span class="input-label">No.of non-viable pregnancies?</span>
+                <input ng-model="p.nonpregs" placeholder="Not carried to term" type="number" required>
             </label>
             <label style="" name="sub_age" class="item item-input">
                 <span class="input-label">Age</span>
-                <input ng-model="p.age" placeholder="" type="number" readonly>
+                <input ng-model="p.age" placeholder="" type="number" readonly required>
             </label>
            
             <label style="" name="last_delivery" class="item item-input">
-                <span class="input-label">last delivery date</span>
-                <input ng-model="p.dat" placeholder="including current one" type="date">
+                <span class="input-label"> last delivery date?</span>
+                <input ng-model="p.dat" placeholder="including current one" type="date" required>
             </label>
             <label style="" name="hyp_history" class="item item-select">
-                <span class="input-label">Hypertension history</span>
-                <select ng-model="p.hyper">
+                <span class="input-label">History in Hypertension?</span>
+                <select ng-model="p.hyper" required>
                     <option value=true >Yes</option>
                     <option value=false>No</option>
                 </select>

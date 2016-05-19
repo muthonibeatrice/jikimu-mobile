@@ -11,11 +11,11 @@
             </div>
             <label style="" name=" first_age" class="item item-input">
                 <span class="input-label">What's your age?</span>
-                <input ng-model="p.age" placeholder="e.g. 35" type="text" readonly>
+                <input ng-model="p.age" placeholder="e.g. 35" type="text" readonly required>
             </label>
             <label style="" name="hyp_history" class="item item-select">
-                <span class="input-label">Hypertension History</span>
-                <select class="" ng-model="p.hyper">
+                <span class="input-label">History in Hypertension?</span>
+                <select class="" ng-model="p.hyper" required>
                     <option>Yes</option>
                     <option>No</option>
                 </select>

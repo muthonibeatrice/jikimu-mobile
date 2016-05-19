@@ -1,0 +1,69 @@
+<ion-view style="" title="Doctor's Note">
+    <ion-content class="has-header" overflow-scroll="true" padding="true">
+
+<br>
+<br>
+	<div>
+ <div class="item item-divider" style="background-color:rgba(56, 126, 245, 0.68)">Your recommendation</div>
+</div>
+  <div class="list card">
+  <div class="item item-avatar">    
+    <h2 style="margin-left:0px"></h2>
+  
+
+  </div>
+  <div class="item item-body">
+  <div class="item item-image">
+    
+    <div ng-repeat="diagnosis in patients" class="card">
+      <div class="card">
+      <div >
+    Hypertensive?
+       <p style="color:{{risk.color}}">{{diagnosis.hyper}} </p>
+ 
+    </div>
+    <div >
+    Medicine
+       <p style="color:{{risk.color}}">{{diagnosis.med}} </p>
+ 
+    </div>
+    <div >
+   Dose
+       <p style="color:{{risk.color}}">{{diagnosis.dose}} </p>
+ 
+    </div>
+    <div >
+    Doctor's Advice
+       <p style="color:{{risk.color}}">{{diagnosis.advice}}</p>
+ 
+    </div>
+
+    <!-- <span class="w3-xlarge"><b>{{diagnosis.med}}</b></span><br> -->
+    <!-- <span class="card-details">{{diagnosis.dose}}</span> -->
+    <!-- <span class="w3-xlarge"><b>{{diagnosis.advice}}</b></span><br> -->
+    </div>
+  
+  </div>
+
+</div>
+
+
+
+</ion-view>
+<div>
+  <h2>Patient List</h2>
+<p>A list of all patients:</p>
+
+<ul class="patient-list">
+<div ng-if="patients.length == 0"><h1>Loading...</h1></div>
+  <li ng-repeat="pat in patients" class="card">
+    <div ng-click="diagnose(pat.id)"
+    class="card-action">Diagnose</div>
+    <!-- <a ui-sref="user"  class="button" style="background-color: rgb(244,32,67);" >Add New User</a -->
+    <img src="img/img_avatar5.png" class="avatar">
+    <span class="w3-xlarge"><b>{{pat.name}}</b></span><br>
+    <span class="card-details">{{pat.docname}}</span>
+  </li>
+
+</ul>
+</div>

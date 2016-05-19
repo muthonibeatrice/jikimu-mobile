@@ -4,26 +4,23 @@
             <div class="item item-divider">Weight monitoring</div>
             <div class="item item-body">
                 <div style="">
-                    <p>Weight is a manifestation of high Blood pressure and for this reason its necessary to monitor your weight. Turn the notification button to get reminders</p>
+                    <p>Weight is a manifestation of high Blood pressure and for this reason its necessary to monitor your weight.</p>
 
-                    <p>Ensure you have not carried anything that can add to your weight.</p>
+                    <!-- <p>Ensure you have not carried anything that can add to your weight.</p> -->
                 </div>
             </div>
         </div>
         <div style="">
             <p>Ensure you have not carried anything that can add to your weight.</p>
         </div>
-        <form style="" class="list" ng-submit="submitweight()">
-            <label style="" class="item item-input" >
-                    <span class="input-label">Today's date</span>
-                    <input placeholder="" type="date" ng-model="weight.birthday" required>
-            </label>
+        <div style="" class="list" >
+           
             <label style="" name="weight" class="item item-input">
                 <span class="input-label">Enter your weight</span>
                 <input placeholder="in Kgs" type="number" ng-model="weight.wtvalue" required>
             </label>
             <!-- <a style="" class="button button-royal button-block " ui-sref="menu.weightChart">Go</a> -->
-            <button type="submit" class="button button-block button-positive icon-right ion-android-arrow-forward">GO</button>
-        </form>
+            <button ng-click="submitweight()" class="button button-block button-positive icon-right ion-android-arrow-forward">GO</button>
+        </div>
     </ion-content>
 </ion-view>
